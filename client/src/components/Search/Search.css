@@ -1,0 +1,9 @@
+.app .search {
+  display: flex;
+  margin-bottom: 45px;
+}
+
+.app .search input[type="text"] {
+  flex-grow: 1;
+  margin-bottom: 0;
+}

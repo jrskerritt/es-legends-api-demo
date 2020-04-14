@@ -1,0 +1,9 @@
+{
+  "name": "es-legends-api-demo",
+  "version": "0.1.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "deploy": "git subtree push --prefix server heroku master"
+  }
+}

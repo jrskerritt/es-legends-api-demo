@@ -1,0 +1,7 @@
+.app .loading-placeholder {
+  text-align: center;
+}
+
+.app .loading-placeholder > div {
+  display: inline-block;
+}

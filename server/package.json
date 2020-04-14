@@ -1,0 +1,11 @@
+{
+  "name": "es-legends-api-demo-server",
+  "version": "0.1.0",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "isomorphic-unfetch": "^3.0.0",
+    "query-string": "^6.12.0"
+  }
+}
