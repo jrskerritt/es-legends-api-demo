@@ -19,9 +19,16 @@
   color: #0067d6
 }
 
+.app .search-results__cards {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
 @media (min-width: 768px) {
   .app .search-results__cards {
-    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
   }
