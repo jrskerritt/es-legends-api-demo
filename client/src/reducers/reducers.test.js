@@ -72,6 +72,12 @@ test('search cards sets the search term', () => {
   expect(newState.searchTerm).toBe('Hlaalu');
 });
 
+test('search cards url encodes the search term', () => {
+  const oldState = { ...defaultState };
+  const newState = reducer(oldState, actions.searchCards('&pageSize=100000'));
+  expect(newState.nextPageUrl).toContain(encodeURIComponent('&pageSize=100000'));
+});
+
 test('search cards resets cards', () => {
   const oldState = { ...defaultState };
   oldState.cards = [{}];

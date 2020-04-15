@@ -17,7 +17,7 @@ export default function app(state, action) {
       return {
         ...state,
         cards: [],
-        nextPageUrl: `${defaultState.nextPageUrl}&name=${action.term}`,
+        nextPageUrl: `${defaultState.nextPageUrl}&name=${encodeURIComponent(action.term)}`,
         searchTerm: action.term
       };
     case CLEAR_SEARCH:
