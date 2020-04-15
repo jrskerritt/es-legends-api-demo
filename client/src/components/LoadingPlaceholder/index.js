@@ -6,7 +6,7 @@ import './LoadingPlaceholder.css';
 export function LoadingPlaceholder() {
   return (
     <div className="loading-placeholder" data-testid="loadingPlaceholder">
-      <ReactLoading type="bars" color="#333" height="100px" width="200px" />
+      <ReactLoading type="bars" color="#e6e6e6" height="120px" width="250px" />
     </div>
   );
 }

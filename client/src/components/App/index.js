@@ -6,9 +6,11 @@ import './App.css';
 export function App() {
   return (
     <div className="app">
-      <h1>The Elder Scrolls: Legends</h1>
-      <h2>Search Cards</h2>
-      <Search />
+      <div className="app__head">
+        <h1>The Elder Scrolls: Legends</h1>
+        <h2>Search Cards</h2>
+        <Search />
+      </div>
       <SearchResults />
     </div>
   );

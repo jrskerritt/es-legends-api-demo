@@ -1,1 +1,42 @@
+.app .card {
+  color: #e3e3e3;
+  margin: 15px auto 45px;
+  width: 300px;
+}
 
+.app .card__image {
+  height: 486px;
+  margin: 0 auto;
+  width: 300px;
+}
+
+.app .card__details {
+  padding: 0 30px 15px;
+  text-align: left;
+}
+
+.app .card__name {
+  font-weight: bold;
+}
+
+.app .card__name-rare {
+  color: #198eff;
+}
+
+.app .card__name-epic {
+  color: #ab48ee;
+}
+
+.app .card__name-legendary {
+  color: #f07000;
+}
+
+.app .card__set {
+  font-style: italic;
+}
+
+@media (min-width: 768px) {
+  .app .card {
+    margin: 15px 10px;
+  }
+}

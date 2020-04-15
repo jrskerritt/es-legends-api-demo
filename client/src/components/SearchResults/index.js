@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { trackWindowScroll } from 'react-lazy-load-image-component';
 import ScrollUpButton from 'react-scroll-up-button';
-import { fetchCards } from '../../actions';
+import { fetchCards, clearSearch } from '../../actions';
 import { Card } from '../Card';
 import { LoadingPlaceholder } from '../LoadingPlaceholder';
 import './SearchResults.css';
@@ -37,15 +37,36 @@ function SearchResults() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [dispatch, cards, loading, nextPageUrl]);
 
+  const handleClear = () => {
+    dispatch(clearSearch());
+  };
+
   return (
     <div className="search-results">
-      {searchTerm && !loading && <h2>Results for "{searchTerm}"</h2>}
+      {searchTerm && !loading && (
+        <>
+          <div className="search-results__header">
+            Results for "{searchTerm}" (
+            <div
+              className="search-results__clear-link"
+              onClick={handleClear}
+            >
+              Clear
+            </div>
+            )
+          </div>
+        </>
+      )}
       {cards.length === 0 && !nextPageUrl && (
         <div className="search-results__empty">No results</div>
       )}
-      {cards && cards.map(c => <Card key={c.id} {...c} />)}
-      <ScrollUpButton />
+      {cards && (
+        <div className="search-results__cards">
+          {cards.map(c => <Card key={c.id} {...c} />)}
+        </div>
+      )}
       {loading && <LoadingPlaceholder />}
+      <ScrollUpButton />
     </div>
   );
 }

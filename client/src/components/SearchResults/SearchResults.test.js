@@ -1,6 +1,7 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { useDispatch, useSelector } from 'react-redux';
+import { CLEAR_SEARCH } from '../../actions';
 import { SearchResults } from './';
 
 const cards = [{ id: 1, name: 'Reachman Shaman', set: 'Test' }];
@@ -48,5 +49,31 @@ describe('SearchResults', () => {
     });
     render(<SearchResults />);
     expect(await screen.findByTestId('loadingPlaceholder')).toBeTruthy();
+  });
+
+  test('displays the clear link if using a search term', async () => {
+    useSelector.mockReturnValueOnce({
+      cards: [],
+      loading: false,
+      nextPageUrl: '/api/cards?page=2',
+      searchTerm: 'Vivec'
+    });
+    render(<SearchResults />);
+    expect(await screen.findByText('Clear')).toBeTruthy();
+  });
+
+  test('clicking the clear link clears the search', async () => {
+    useSelector.mockReturnValueOnce({
+      cards: [],
+      loading: false,
+      nextPageUrl: '/api/cards?page=2',
+      searchTerm: 'Vivec'
+    });
+    render(<SearchResults />);
+    const clearLink = await screen.findByText('Clear');
+    fireEvent.click(clearLink);
+    await waitFor(() => {
+      expect(dispatch).toHaveBeenCalledWith(expect.objectContaining({ type: CLEAR_SEARCH }))
+    });
   });
 });

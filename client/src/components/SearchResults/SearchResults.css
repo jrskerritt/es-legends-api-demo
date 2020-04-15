@@ -1,3 +1,28 @@
 .app .search-results {
+  color: #e3e3e3;
   text-align: center;
+}
+
+.app .search-results__header {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.app .search-results__clear-link {
+  display: inline-block;
+  color: #0078e7;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.app .search-results__clear-link:hover {
+  color: #0067d6
+}
+
+@media (min-width: 768px) {
+  .app .search-results__cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
 }

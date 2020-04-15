@@ -11,14 +11,13 @@ export function Card({
       <div className="card__image">
         <LazyLoadImage
           alt={name}
-          height={580}
+          height={486}
           src={imageUrl}
-          width={350}
+          width={300}
         />
       </div>
       <div className="card__details">
-        <div className="card__name">{name}</div>
-        <div className="card__rarity">{rarity}</div>
+        <div className={`card__name card__name-${rarity.toLowerCase()}`}>{name}</div>
         <div className="card__type">
           {type} &mdash;&nbsp;
           <span className="card__stats">
@@ -28,8 +27,8 @@ export function Card({
             <span className="card__subtypes">&nbsp;{subtypes.join(', ')}</span>
           )}
         </div>
-        <div className="card_set">{set.name}</div>
-        <div className="card_text">{text}</div>
+        <div className="card__set">{set}</div>
+        <div className="card__text">{text}</div>
       </div>
     </div>
   )
