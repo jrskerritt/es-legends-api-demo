@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { useDispatch, useSelector } from 'react-redux';
-import { SEARCH_CARDS, CLEAR_SEARCH } from '../../actions';
+import { SEARCH_CARDS } from '../../actions';
 import { Search } from './';
 
 jest.mock('react-redux');

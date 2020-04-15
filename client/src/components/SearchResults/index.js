@@ -71,5 +71,8 @@ function SearchResults() {
   );
 }
 
+// trackWindowScroll should be used for performance reasons when displaying
+// a lot of images -- see:
+// https://github.com/Aljullu/react-lazy-load-image-component#using-trackwindowscroll-hoc-to-improve-performance
 const trackWindowScollSearchResults = trackWindowScroll(SearchResults);
 export { trackWindowScollSearchResults as SearchResults };
