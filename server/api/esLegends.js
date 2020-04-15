@@ -37,7 +37,7 @@ function getCards(params) {
         text: c.text,
         imageUrl: c.imageUrl
       })),
-      nextPageUrl: _links.next && _links.next.replace(esLegendsApiUrl, '/api')
+      nextPageUrl: _links && _links.next && _links.next.replace(esLegendsApiUrl, '/api')
     }));
 };
 

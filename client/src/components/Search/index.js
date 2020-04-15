@@ -1,19 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchCards } from '../../actions';
+import { searchCards } from '../../actions';
 import './Search.css';
 
 export function Search() {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState('');
 
-  useEffect(() => {
-    dispatch(fetchCards());
-  }, [dispatch]);
+  const handleSearch = () => {
+    if (!searchTerm) {
+      return;
+    }
 
-  const onKeyPress = e => {
-    if (e.key === 'Enter') {
-      // search
+    dispatch(searchCards(searchTerm));
+  };
+
+  const onKeyPress = ({ key }) => {
+    if (key === 'Enter') {
+      handleSearch();
     }
   };
 
@@ -31,7 +35,7 @@ export function Search() {
         className="pure-button pure-button-primary"
         type="button"
         disabled={false}
-        onClick={() => {}}
+        onClick={handleSearch}
       >
         Search
       </button>

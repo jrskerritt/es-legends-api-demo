@@ -2,7 +2,7 @@ import { applyMiddleware, createStore } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import rootReducer from './reducers';
 
-const defaultState = {
+export const defaultState = {
   cards: [],
   error: null,
   loading: false,

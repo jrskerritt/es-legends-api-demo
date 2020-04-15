@@ -10,6 +10,7 @@
     "react-loading": "^2.0.3",
     "react-redux": "^7.2.0",
     "react-scripts": "3.4.1",
+    "react-scroll-up-button": "^1.6.4",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
   },

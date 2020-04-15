@@ -16,6 +16,17 @@ export const handleFetchError = error => ({
   type: HANDLE_FETCH_ERROR
 });
 
+export const SEARCH_CARDS = 'SEARCH_CARDS';
+export const searchCards = term => ({
+  term,
+  type: SEARCH_CARDS
+});
+
+export const CLEAR_SEARCH = 'CLEAR_SEARCH';
+export const clearSearch = () => ({
+  type: CLEAR_SEARCH
+});
+
 export const fetchCards = () =>
   async (dispatch, getState) => {
     const { nextPageUrl, loading } = getState();
