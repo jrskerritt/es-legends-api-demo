@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { trackWindowScroll } from 'react-lazy-load-image-component';
 import ScrollUpButton from 'react-scroll-up-button';
@@ -8,12 +8,12 @@ import { LoadingPlaceholder } from '../LoadingPlaceholder';
 import './SearchResults.css';
 
 function SearchResults() {
-  const element = useRef();
   const dispatch = useDispatch();
-  const { cards, loading, nextPageUrl } = useSelector(state => ({
+  const { cards, loading, nextPageUrl, searchTerm } = useSelector(state => ({
     cards: state.cards,
     loading: state.loading,
-    nextPageUrl: state.nextPageUrl
+    nextPageUrl: state.nextPageUrl,
+    searchTerm: state.searchTerm
   }));
 
   useEffect(() => {
@@ -29,7 +29,7 @@ function SearchResults() {
       }
     };
 
-    if (!cards.length) {
+    if (!cards.length && nextPageUrl) {
       dispatch(fetchCards());
     }
 
@@ -38,8 +38,12 @@ function SearchResults() {
   }, [dispatch, cards, loading, nextPageUrl]);
 
   return (
-    <div className="search-results" ref={element}>
-      {cards.map(c => <Card key={c.id} {...c} />)}
+    <div className="search-results">
+      {searchTerm && !loading && <h2>Results for "{searchTerm}"</h2>}
+      {cards.length === 0 && !nextPageUrl && (
+        <div className="search-results__empty">No results</div>
+      )}
+      {cards && cards.map(c => <Card key={c.id} {...c} />)}
       <ScrollUpButton />
       {loading && <LoadingPlaceholder />}
     </div>

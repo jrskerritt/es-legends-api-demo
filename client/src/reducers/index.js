@@ -14,9 +14,19 @@ export default function app(state, action) {
         loading: false
       };
     case SEARCH_CARDS:
-      return { ...state, cards: [], nextPageUrl: `${defaultState.nextPageUrl}&name=${action.term}` };
+      return {
+        ...state,
+        cards: [],
+        nextPageUrl: `${defaultState.nextPageUrl}&name=${action.term}`,
+        searchTerm: action.term
+      };
     case CLEAR_SEARCH:
-      return { ...state, cards: [], nextPageUrl: defaultState.nextPageUrl };
+      return {
+        ...state,
+        cards: [],
+        nextPageUrl: defaultState.nextPageUrl,
+        searchTerm: defaultState.searchTerm
+      };
     case HANDLE_FETCH_ERROR:
       return { ...state, loading: false, error: action.error };
     default:

@@ -43,3 +43,45 @@ test('handle fetch error action sets error', () => {
   const newState = reducer(oldState, actions.handleFetchError(new Error('test')));
   expect(newState.error.message).toBe('test');
 });
+
+test('clear search resets the search term', () => {
+  const oldState = { ...defaultState };
+  oldState.searchTerm = 'Vivec';
+  const newState = reducer(oldState, actions.clearSearch());
+  expect(newState.searchTerm).toBe(defaultState.searchTerm);
+});
+
+test('clear search resets cards', () => {
+  const oldState = { ...defaultState };
+  oldState.cards = [{}];
+  const newState = reducer(oldState, actions.clearSearch());
+  expect(newState.cards.length).toBe(0);
+});
+
+test('clear search resets the nextPageUrl', () => {
+  const oldState = { ...defaultState };
+  oldState.nextPageUrl = '/api/cards?page=20';
+  const newState = reducer(oldState, actions.clearSearch());
+  expect(newState.nextPageUrl).toBe(defaultState.nextPageUrl);
+});
+
+test('search cards sets the search term', () => {
+  const oldState = { ...defaultState };
+  oldState.searchTerm = 'Balmora';
+  const newState = reducer(oldState, actions.searchCards('Hlaalu'));
+  expect(newState.searchTerm).toBe('Hlaalu');
+});
+
+test('search cards resets cards', () => {
+  const oldState = { ...defaultState };
+  oldState.cards = [{}];
+  const newState = reducer(oldState, actions.searchCards('Hlaalu'));
+  expect(newState.cards.length).toBe(0);
+});
+
+test('search cards sets the nextPageUrl to include the name param', () => {
+  const oldState = { ...defaultState };
+  oldState.nextPageUrl = '/api/cards?page=12';
+  const newState = reducer(oldState, actions.searchCards('Hlaalu'));
+  expect(newState.nextPageUrl).toBe('/api/cards?page=1&name=Hlaalu');
+});

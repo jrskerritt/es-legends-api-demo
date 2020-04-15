@@ -6,7 +6,8 @@ export const defaultState = {
   cards: [],
   error: null,
   loading: false,
-  nextPageUrl: `/api/cards?page=1`
+  nextPageUrl: `/api/cards?page=1`,
+  searchTerm: ''
 };
 
 export function configureStore(preloadedState = defaultState) {
