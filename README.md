@@ -70,22 +70,35 @@ yarn test
 ## Requirements
 
 :white_check_mark: Show results in a card grid format with the image prominently displayed.
+
 :white_check_mark: Each card displays: Image, Name, Text, Set Name, and Type. Additional fields are optional.
+
 :white_check_mark: Display a loading indicator when communicating with the API.
+
 :white_check_mark: Use a responsive design that accommodates, at minimum, desktop and mobile.
+
 :white_check_mark: Initially, fetch and display the first 20 results returned by the API.
+
 :white_check_mark: As the user scrolls down the page, load and append additional cards using “infinite scroll.”
+
 :white_check_mark: Retrieve additional pages of results as-needed but do not load more than 20 cards with each request.
+
 :white_check_mark: Allow the user to search for cards by Name.
+
 :white_check_mark: Use modern open-source web technologies to implement your solution (React, Backbone, Angular, Vue, Underscore, etc.).
+
 :white_check_mark: Provide instructions for prerequisites, installation, and application setup and build in a README file.
 
 ### Things to look for
 
 :white_check_mark: Search input is url encoded before it is sent in requests.
+
 :white_check_mark: All card images are lazy-loaded.
+
 :white_check_mark: Empty search results are handled correctly.
+
 :white_check_mark: There is a link to clear search results when searching by name.
+
 :white_check_mark: A scroll-to-top button is included for usabiltiy when scrolling deep into search results.
 
 ## Design decisions
