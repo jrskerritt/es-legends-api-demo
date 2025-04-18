@@ -1,4 +1,4 @@
-# 🗒️ Disclaimer: This is a take-home assignment for a job application from 2021 and does not reflect how I would build web application today.
+# 🗒️ Disclaimer: This is a take-home assignment for a job application from 2020 and does not reflect how I would build web application today.
 
 # The Elder Scrolls: Legends API Demo
 
